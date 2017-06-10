@@ -61,6 +61,7 @@ class CAutoFile;
 static const unsigned int MAX_SIZE = 0x02000000;
 
 static const int PROTOCOL_VERSION = 70013;
+static const int MIN_PEER_PROTO_VERSION = 70012;
 
 // Used to bypass the rule against non-const reference to temporary
 // where it makes sense with wrappers such as CFlatData or CTxDB

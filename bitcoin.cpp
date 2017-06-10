@@ -104,6 +104,11 @@ class CNode {
       CAddress addrFrom;
       uint64 nNonce = 1;
       vRecv >> nVersion >> you.nServices >> nTime >> addrMe;
+	  if (nVersion < MIN_PEER_PROTO_VERSION) {
+ 	    printf("\n\n\%s: PROT_VERSION: %i\n", ToString(you).c_str(), nVersion);
+ 	    ban = 100000;
+        return true;
+	  }
       if (nVersion == 10300) nVersion = 300;
       if (nVersion >= 106 && !vRecv.empty())
         vRecv >> addrFrom >> nNonce;
